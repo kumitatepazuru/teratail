@@ -1,0 +1,309 @@
+$ kernprof -l -v 7-24-test.py
+Wrote profile results to 7-24-test.py.lprof
+Timer unit: 1e-06 s
+
+Total time: 0.275189 s
+File: 7-24-test.py
+Function: __init__ at line 6
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+     6                                               @profile
+     7                                               def __init__(self):
+     8         1     232035.0 232035.0     84.3          self.root = tkinter.Tk()
+     9         1         11.0     11.0      0.0          self.root.geometry('1540x800')
+    10         1          6.0      6.0      0.0          self.root.title('Multi Color Puzzle')
+    11         1        339.0    339.0      0.1          self.canvas = tkinter.Canvas(self.root, width=1540, height=800, bg="gold")
+    12         1         27.0     27.0      0.0          self.canvas.place(x=0, y=0)
+    13         1      14926.0  14926.0      5.4          self.label = tkinter.Label(self.root, text="SPACE KEY を押してスタート", font=("system", 30), bg="gold")
+    14         1         53.0     53.0      0.0          self.label.place(x=550, y=200)
+    15         1          3.0      3.0      0.0          self.numlist = []
+    16         1          3.0      3.0      0.0          (self.x3, self.y3) = 1200, 200
+    17         1          1.0      1.0      0.0          self.score = 0
+    18         1       2406.0   2406.0      0.9          self.label_ = {0: tkinter.Label(self.root, text="SPACE KEY を押してスタート", font=("system", 30), bg="gold"),
+    19         1      15476.0  15476.0      5.6                         2: tkinter.Label(self.root, text="GAMEOVER", font=("system", 500), bg="gold"),
+    20         1       4998.0   4998.0      1.8                         3: tkinter.Label(self.root, text="LEVEL1", font=("system", 70)),
+    21         1       4832.0   4832.0      1.8                         4: tkinter.Label(self.root, text="SCORE＝" + str(self.score), font=("system", 50)),
+    22                                                                  }
+    23         1          2.0      2.0      0.0          self.color_list = {1: "red", 2: "blue", 3: "gold", 4: "limegreen", 5: "deeppink", 6: "purple", 7: "cyan",
+    24         1          2.0      2.0      0.0                             8: "orange", 9: "ivory", 10: "navy", 11: "violet", 12: "indianred", 13: "gainsboro",
+    25         1          1.0      1.0      0.0                             14: "mistyrose", 15: "skyblue", 16: "khaki", 17: "coral", 18: "greenyellow", 19: "tan",
+    26         1          3.0      3.0      0.0                             20: "snow", 21: "maroon", 22: "olive", 23: "crimson", 24: "green"}
+    27         1         23.0     23.0      0.0          self.a = numpy.array([6] * 24)
+    28         1          3.0      3.0      0.0          self.exlist = [495, 545, 595, 645, 695, 745, 795, 845, 895, 945, 995, 1045]
+    29         1          5.0      5.0      0.0          self.exlistArray = numpy.array(self.exlist)
+    30         1          2.0      2.0      0.0          self.eylist = [125, 175, 225, 275, 325, 375, 375, 425, 475, 525, 575, 625, 675]
+    31         1          5.0      5.0      0.0          self.eylistArray = numpy.array(self.eylist)
+    32         1          1.0      1.0      0.0          self.list_move = [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25,
+    33         1          2.0      2.0      0.0                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    34         1          1.0      1.0      0.0                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    35         1          2.0      2.0      0.0                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    36         1          1.0      1.0      0.0                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    37         1          1.0      1.0      0.0                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    38         1          2.0      2.0      0.0                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    39         1          1.0      1.0      0.0                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    40         1          2.0      2.0      0.0                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    41         1          1.0      1.0      0.0                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    42         1          1.0      1.0      0.0                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    43         1          2.0      2.0      0.0                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    44         1          1.0      1.0      0.0                            0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    45         1          2.0      2.0      0.0                            25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25]
+    46         1          2.0      2.0      0.0          self.key = ""
+    47         1          2.0      2.0      0.0          self.index = 0
+    48         1          1.0      1.0      0.0          self.x2 = 250
+    49         1          2.0      2.0      0.0          self.y2 = 70
+
+Total time: 0.000987 s
+File: 7-24-test.py
+Function: key_down at line 51
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    51                                               @profile
+    52                                               def key_down(self, e):
+    53         1          7.0      7.0      0.7          self.key = e.keysym
+    54         1          3.0      3.0      0.3          if self.index == 0:
+    55         1          3.0      3.0      0.3              if self.key == "space":
+    56         1         37.0     37.0      3.7                  self.canvas.delete("all")
+    57         1         40.0     40.0      4.1                  self.label.place_forget()
+    58         1          5.0      5.0      0.5                  self.index += 1
+    59         1        892.0    892.0     90.4                  self.main_two()
+
+Total time: 0.000694 s
+File: 7-24-test.py
+Function: now_square at line 61
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    61                                               @profile
+    62                                               def now_square(self):
+    63         3         13.0      4.3      1.9          self.canvas.create_rectangle(self.x3, self.y3, self.x3 + 70, self.y3 + 70, fill="#E6E6FA", outline="navy",
+    64         3        681.0    227.0     98.1                                       width=4)
+
+Total time: 0.025645 s
+File: 7-24-test.py
+Function: square at line 66
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    66                                               @profile
+    67                                               def square(self):
+    68        53       5778.0    109.0     22.5          self.canvas.create_rectangle(self.x1, self.y1, self.x1 + 50, self.y1 + 50, fill=self.color)
+    69        53        308.0      5.8      1.2          self.canvas.create_rectangle(self.x1 + 30, self.y1 + 5, self.x1 + 45, self.y1 + 10, fill="white",
+    70        53       3841.0     72.5     15.0                                       outline="white", width=0)
+    71        53       3081.0     58.1     12.0          self.canvas.create_rectangle(self.x1 + 40, self.y1 + 10, self.x1 + 45, self.y1 + 20, fill="white", width=0)
+    72        53        233.0      4.4      0.9          self.canvas.create_rectangle(self.x1 + 40, self.y1 + 25, self.x1 + 45, self.y1 + 30, fill="white",
+    73        53       3229.0     60.9     12.6                                       outline="black", width=1)
+    74        53        312.0      5.9      1.2          self.canvas.create_line(self.x1 + 30, self.y1 + 5, self.x1 + 45, self.y1 + 5, self.x1 + 45, self.y1 + 5,
+    75        53        477.0      9.0      1.9                                  self.x1 + 45, self.y1 + 20, self.x1 + 40, self.y1 + 20,
+    76        53        136.0      2.6      0.5                                  self.x1 + 45,
+    77        53       4099.0     77.3     16.0                                  self.y1 + 20, fill="black", width=1)
+    78        53        281.0      5.3      1.1          self.canvas.create_line(self.x1 + 30, self.y1 + 5, self.x1 + 30, self.y1 + 10, self.x1 + 30, self.y1 + 10,
+    79        53        177.0      3.3      0.7                                  self.x1 + 40, self.y1 + 10, self.x1 + 40, self.y1 + 10,
+    80        53         86.0      1.6      0.3                                  self.x1 + 40,
+    81        53       3607.0     68.1     14.1                                  self.y1 + 20, fill="black", width=1)
+
+Total time: 0.068413 s
+File: 7-24-test.py
+Function: block_move_sub at line 83
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    83                                               @profile
+    84                                               def block_move_sub(self):
+    85         2       1491.0    745.5      2.2          self.canvas.delete("all")
+    86         2      49428.0  24714.0     72.2          self.label_[2] = tkinter.Label(self.root, text="GAMEOVER", font=("system", 500), bg="gold")
+    87         2        227.0    113.5      0.3          self.label_[2].place(x=550, y=200)
+    88         2         53.0     26.5      0.1          self.label_[3].place_forget()
+    89         2         11.0      5.5      0.0          self.index += 1
+    90         2         12.0      6.0      0.0          self.numlist.extend([self.score])
+    91         2      16304.0   8152.0     23.8          self.label_[5] = tkinter.Label(self.root, text="最高得点は" + str(max(self.numlist)), font=("system", 50))
+    92         2        165.0     82.5      0.2          self.label_[5].place(x=10, y=720)
+    93        50        135.0      2.7      0.2          for i in range(6, 30):
+    94        48        429.0      8.9      0.6              self.label_[i].place_forget()
+    95         2        158.0     79.0      0.2          self.root.after(5000, self.main_two_sub)
+
+Total time: 2.11781 s
+File: 7-24-test.py
+Function: block_move at line 97
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    97                                               @profile
+    98                                               def block_move(self, e):
+    99        27        323.0     12.0      0.0          if self.index == 1:
+   100        27        196.0      7.3      0.0              self.point_y = e.y
+   101        27         94.0      3.5      0.0              self.point_x = e.x
+   102        27       2110.0     78.1      0.1              self.pos_x = (numpy.abs(self.exlistArray - self.point_x)).argmin()
+   103        27        489.0     18.1      0.0              self.pos_y = (numpy.abs(self.eylistArray - self.point_y)).argmin()
+   104        27        399.0     14.8      0.0              exnumber = self.exlistArray[self.pos_x] - 25
+   105        27        127.0      4.7      0.0              eynumber = self.eylistArray[self.pos_y] - 25
+   106        27        562.0     20.8      0.0              list_number = int(((exnumber - 470) / 50 + (eynumber - 100) / 50 * 12) + 12)
+   107        27        110.0      4.1      0.0              if self.list_move[list_number] == 0:
+   108        26        128.0      4.9      0.0                  if self.point_x >= 470 and self.point_x <= 1070 and self.point_y >= 100 and self.point_y <= 700:
+   109        26         84.0      3.2      0.0                      self.x1 = exnumber
+   110        26         84.0      3.2      0.0                      self.y1 = eynumber
+   111        26      23509.0    904.2      1.1                      self.square()
+   112        26        150.0      5.8      0.0                      self.list_move[list_number] = self.brn
+   113        26        167.0      6.4      0.0                      if self.list_move[list_number - 1] == self.brn or self.list_move[list_number + 1] == self.brn or \
+   114        25         68.0      2.7      0.0                              self.list_move[
+   115        25        111.0      4.4      0.0                                  list_number - 12] == self.brn or self.list_move[list_number + 12] == self.brn:
+   116         2        254.0    127.0      0.0                          self.root.after(500, self.block_move_sub)
+   117                                                               else:
+   118        24        124.0      5.2      0.0                          self.score += 3
+   119        24     244890.0  10203.8     11.6                          self.score_pack()
+   120        24        874.0     36.4      0.0                          self.label_[6].place_forget()
+   121        24        324.0     13.5      0.0                          self.label_[7].place_forget()
+   122       552       1620.0      2.9      0.1                          for i in range(8, 30):
+   123       528       5202.0      9.9      0.2                              self.label_[i].place_forget()
+   124        24    1835779.0  76490.8     86.7                          self.color_determine()
+   125                                                   else:
+   126        27         29.0      1.1      0.0              pass
+
+Total time: 2.021 s
+File: 7-24-test.py
+Function: color_determine at line 128
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   128                                               @profile
+   129                                               def color_determine(self):
+   130        27       1176.0     43.6      0.1          self.block_number = random.randint(1, 24)
+   131        27         96.0      3.6      0.0          self.brn = self.block_number
+   132        27         69.0      2.6      0.0          w = "white"
+   133        27        100.0      3.7      0.0          self.x1 = self.x3 + 10
+   134        27         94.0      3.5      0.0          self.y1 = self.y3 + 10
+   135        27         81.0      3.0      0.0          if self.index == 1:
+   136        27         64.0      2.4      0.0              tmp = 0
+   137       321        853.0      2.7      0.0              for i in range(1, 24):
+   138       321       1170.0      3.6      0.1                  if self.brn == i and self.a[i-1] != 0:
+   139        27         70.0      2.6      0.0                      tmp = 1
+   140        27        255.0      9.4      0.0                      self.a[self.brn - 1] -= 1
+   141        27        113.0      4.2      0.0                      self.color = self.color_list[self.brn]
+   142        27         81.0      3.0      0.0                      break
+   143
+   144        27         71.0      2.6      0.0              if tmp == 0:
+   145                                                           self.block_number = random.randint(1, 24)
+   146                                                           self.brn = self.block_number
+   147                                                           self.root.after(1, self.color_determine)
+   148       675       1444.0      2.1      0.1              for i in range(6, 30):
+   149       648    1941984.0   2996.9     96.1                  self.label_[i] = tkinter.Label(self.root, text="＝" + str(self.a[i - 6]), font=(None, 10), bg=w)
+   150
+   151        27         21.0      0.8      0.0          k = 6
+   152       243        233.0      1.0      0.0          for i in range(285, 605, 40):
+   153       864        717.0      0.8      0.0              for j in range(45, 345, 100):
+   154       648       8132.0     12.5      0.4                  self.label_[k].place(x=j, y=i)
+   155        27       4230.0    156.7      0.2          self.square()
+   156        27      59946.0   2220.2      3.0          self.score_pack()
+
+Total time: 0.247146 s
+File: 7-24-test.py
+Function: canvas_delete_all at line 158
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   158                                               @profile
+   159                                               def canvas_delete_all(self):
+   160         3        955.0    318.3      0.4          self.canvas.delete("all")
+   161         3     246191.0  82063.7     99.6          self.main_tree()
+
+Total time: 0.001679 s
+File: 7-24-test.py
+Function: main_two at line 163
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   163                                               @profile
+   164                                               def main_two(self):
+   165         3       1306.0    435.3     77.8          self.canvas.create_rectangle(0, 0, 1540, 1540, fill="black")
+   166         3         16.0      5.3      1.0          self.score = 0
+   167         3        357.0    119.0     21.3          self.root.after(3000, self.canvas_delete_all)
+
+Total time: 0.020635 s
+File: 7-24-test.py
+Function: main_two_sub at line 169
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   169                                               @profile
+   170                                               def main_two_sub(self):
+   171         2        162.0     81.0      0.8          self.label_[2].place_forget()
+   172         2         11.0      5.5      0.1          self.score = 0
+   173         2      19550.0   9775.0     94.7          self.score_pack()
+   174         2         11.0      5.5      0.1          self.index -= 1
+   175         2          4.0      2.0      0.0          if __name__ == "__main__":
+   176         2        897.0    448.5      4.3              self.main_two()
+
+Total time: 0.323214 s
+File: 7-24-test.py
+Function: score_pack at line 178
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   178                                               @profile
+   179                                               def score_pack(self):
+   180        53       1249.0     23.6      0.4          self.label_[4].place_forget()
+   181        53     318211.0   6004.0     98.5          self.label_[4] = tkinter.Label(self.root, text="SCORE＝" + str(self.score), font=("system", 50))
+   182        53       3754.0     70.8      1.2          self.label_[4].place(x=10, y=170)
+
+Total time: 0.244835 s
+File: 7-24-test.py
+Function: main_tree at line 184
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   184                                               @profile
+   185                                               def main_tree(self):
+   186         3      18704.0   6234.7      7.6          self.label_[3] = tkinter.Label(self.root, text="LEVEL1", font=("system", 70))
+   187         3        223.0     74.3      0.1          self.label_[3].place(x=10, y=10)
+   188         3      18075.0   6025.0      7.4          self.label_[4] = tkinter.Label(self.root, text="SCORE＝" + str(self.score), font=("system", 50))
+   189         3        216.0     72.0      0.1          self.label_[4].place(x=10, y=170)
+   190         3        869.0    289.7      0.4          self.canvas.create_rectangle(470, 100, 470 + 600, 100 + 600, fill="#E6E6FA", width=0)
+   191         3        727.0    242.3      0.3          self.canvas.create_rectangle(420, 50, 470, 750, fill="#006400", width=0)
+   192         3        294.0     98.0      0.1          self.canvas.create_rectangle(420, 50, 1120, 100, fill="#006400", width=0)
+   193         3        163.0     54.3      0.1          self.canvas.create_rectangle(1070, 50, 1120, 750, fill="#006400", width=0)
+   194         3        134.0     44.7      0.1          self.canvas.create_rectangle(420, 700, 1120, 750, fill="#006400", width=0)
+   195        42        152.0      3.6      0.1          for i in range(13):
+   196        39        131.0      3.4      0.1              y = i * 50 + 100
+   197        39       2039.0     52.3      0.8              self.canvas.create_line(470, y, 1070, y, fill="black")
+   198        39        141.0      3.6      0.1              x = i * 50 + 470
+   199        39       1516.0     38.9      0.6              self.canvas.create_line(x, 100, x, 700, fill="black")
+   200         3        783.0    261.0      0.3          self.now_square()
+   201         3        256.0     85.3      0.1          self.canvas.create_rectangle(10, 280, 300, 600, fill="white")
+   202         3        471.0    157.0      0.2          self.canvas.create_rectangle(20, 290, 40, 310, fill="red")
+   203         3        480.0    160.0      0.2          self.canvas.create_rectangle(120, 290, 140, 310, fill="blue")
+   204         3        132.0     44.0      0.1          self.canvas.create_rectangle(220, 290, 240, 310, fill="gold")
+   205         3        433.0    144.3      0.2          self.canvas.create_rectangle(20, 330, 40, 350, fill="limegreen")
+   206         3        403.0    134.3      0.2          self.canvas.create_rectangle(120, 330, 140, 350, fill="deeppink")
+   207         3        356.0    118.7      0.1          self.canvas.create_rectangle(220, 330, 240, 350, fill="purple")
+   208         3        318.0    106.0      0.1          self.canvas.create_rectangle(20, 370, 40, 390, fill="cyan")
+   209         3        385.0    128.3      0.2          self.canvas.create_rectangle(120, 370, 140, 390, fill="orange")
+   210         3        480.0    160.0      0.2          self.canvas.create_rectangle(220, 370, 240, 390, fill="ivory")
+   211         3        192.0     64.0      0.1          self.canvas.create_rectangle(20, 410, 40, 430, fill="navy")
+   212         3        279.0     93.0      0.1          self.canvas.create_rectangle(120, 410, 140, 430, fill="violet")
+   213         3        305.0    101.7      0.1          self.canvas.create_rectangle(220, 410, 240, 430, fill="indianred")
+   214         3        343.0    114.3      0.1          self.canvas.create_rectangle(20, 450, 40, 470, fill="gainsboro")
+   215         3        335.0    111.7      0.1          self.canvas.create_rectangle(120, 450, 140, 470, fill="mistyrose")
+   216         3        277.0     92.3      0.1          self.canvas.create_rectangle(220, 450, 240, 470, fill="skyblue")
+   217         3        406.0    135.3      0.2          self.canvas.create_rectangle(20, 490, 40, 510, fill="khaki")
+   218         3        385.0    128.3      0.2          self.canvas.create_rectangle(120, 490, 140, 510, fill="coral")
+   219         3        407.0    135.7      0.2          self.canvas.create_rectangle(220, 490, 240, 510, fill="greenyellow")
+   220         3        390.0    130.0      0.2          self.canvas.create_rectangle(20, 530, 40, 550, fill="tan")
+   221         3        330.0    110.0      0.1          self.canvas.create_rectangle(120, 530, 140, 550, fill="snow")
+   222         3        408.0    136.0      0.2          self.canvas.create_rectangle(220, 530, 240, 550, fill="maroon")
+   223         3        401.0    133.7      0.2          self.canvas.create_rectangle(20, 570, 40, 590, fill="olive")
+   224         3        313.0    104.3      0.1          self.canvas.create_rectangle(120, 570, 140, 590, fill="crimson")
+   225         3        294.0     98.0      0.1          self.canvas.create_rectangle(220, 570, 240, 590, fill="green")
+   226         3     191799.0  63933.0     78.3          self.color_determine()
+   227         3         90.0     30.0      0.0          self.canvas.bind("<1>", self.block_move)
+
+Total time: 24.7869 s
+File: 7-24-test.py
+Function: start at line 229
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+   229                                               @profile
+   230                                               def start(self):
+   231         1         45.0     45.0      0.0          self.root.bind("<Key>", self.key_down)
+   232         1   24786901.0 24786901.0    100.0          self.root.mainloop()

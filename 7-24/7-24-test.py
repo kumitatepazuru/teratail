@@ -2,8 +2,8 @@ import tkinter
 import random
 import numpy
 
-
 class game:
+    @profile
     def __init__(self):
         self.root = tkinter.Tk()
         self.root.geometry('1540x800')
@@ -48,6 +48,7 @@ class game:
         self.x2 = 250
         self.y2 = 70
 
+    @profile
     def key_down(self, e):
         self.key = e.keysym
         if self.index == 0:
@@ -57,10 +58,12 @@ class game:
                 self.index += 1
                 self.main_two()
 
+    @profile
     def now_square(self):
         self.canvas.create_rectangle(self.x3, self.y3, self.x3 + 70, self.y3 + 70, fill="#E6E6FA", outline="navy",
                                      width=4)
 
+    @profile
     def square(self):
         self.canvas.create_rectangle(self.x1, self.y1, self.x1 + 50, self.y1 + 50, fill=self.color)
         self.canvas.create_rectangle(self.x1 + 30, self.y1 + 5, self.x1 + 45, self.y1 + 10, fill="white",
@@ -77,6 +80,7 @@ class game:
                                 self.x1 + 40,
                                 self.y1 + 20, fill="black", width=1)
 
+    @profile
     def block_move_sub(self):
         self.canvas.delete("all")
         self.label_[2] = tkinter.Label(self.root, text="GAMEOVER", font=("system", 500), bg="gold")
@@ -90,6 +94,7 @@ class game:
             self.label_[i].place_forget()
         self.root.after(5000, self.main_two_sub)
 
+    @profile
     def block_move(self, e):
         if self.index == 1:
             self.point_y = e.y
@@ -120,6 +125,7 @@ class game:
         else:
             pass
 
+    @profile
     def color_determine(self):
         self.block_number = random.randint(1, 24)
         self.brn = self.block_number
@@ -128,8 +134,8 @@ class game:
         self.y1 = self.y3 + 10
         if self.index == 1:
             tmp = 0
-            for i in range(1, 25):
-                if self.brn == i and self.a[i] != 0:
+            for i in range(1, 24):
+                if self.brn == i and self.a[i-1] != 0:
                     tmp = 1
                     self.a[self.brn - 1] -= 1
                     self.color = self.color_list[self.brn]
@@ -149,15 +155,18 @@ class game:
         self.square()
         self.score_pack()
 
+    @profile
     def canvas_delete_all(self):
         self.canvas.delete("all")
         self.main_tree()
 
+    @profile
     def main_two(self):
         self.canvas.create_rectangle(0, 0, 1540, 1540, fill="black")
         self.score = 0
         self.root.after(3000, self.canvas_delete_all)
 
+    @profile
     def main_two_sub(self):
         self.label_[2].place_forget()
         self.score = 0
@@ -166,11 +175,13 @@ class game:
         if __name__ == "__main__":
             self.main_two()
 
+    @profile
     def score_pack(self):
         self.label_[4].place_forget()
         self.label_[4] = tkinter.Label(self.root, text="SCORE＝" + str(self.score), font=("system", 50))
         self.label_[4].place(x=10, y=170)
 
+    @profile
     def main_tree(self):
         self.label_[3] = tkinter.Label(self.root, text="LEVEL1", font=("system", 70))
         self.label_[3].place(x=10, y=10)
@@ -215,6 +226,7 @@ class game:
         self.color_determine()
         self.canvas.bind("<1>", self.block_move)
 
+    @profile
     def start(self):
         self.root.bind("<Key>", self.key_down)
         self.root.mainloop()
